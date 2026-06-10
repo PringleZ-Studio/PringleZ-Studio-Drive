@@ -4,215 +4,309 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pringlez Software Hub</title>
+<title>Pringlez Hub</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+<!-- ===== CONFIGURATION: LINKS & SETTINGS ===== -->
+<!-- Update all your download links here! Leave blank "" for Coming Soon items -->
+<script>
+const LINKS = {
+  afterEffects: "",
+  photoshop: "",
+  premierePro: "",
+  illustrator2026: "",
+  lightroomClassic2026: "",
+  lightroom: "",
+  xd: "",
+  dreamweaver: "",
+  mediaEncoder2026: "",
+  higgsPlugins: "",
+  utorrentPro: "",
+  filmora: "",
+  office365: "",
+  winrar: "",
+  cinema4d: ""
+};
+</script>
+<!-- ===== END LINKS ===== -->
+
 <style>
-
-:root{
---bg:#040b18;
---card:rgba(255,255,255,.06);
---border:rgba(255,255,255,.08);
---text:#ffffff;
---muted:#9ca3af;
---blue:#3b82f6;
+:root {
+  --bg: #040b18;
+  --card: rgba(255, 255, 255, .06);
+  --border: rgba(255, 255, 255, .08);
+  --text: #ffffff;
+  --muted: #9ca3af;
+  --blue: #3b82f6;
+  --purple: #7c3aed;
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Inter',sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
-body{
-background:
-radial-gradient(circle at top,#1e3a8a 0%,#081224 25%,#040b18 70%);
-color:var(--text);
-min-height:100vh;
-overflow-x:hidden;
+body {
+  background: radial-gradient(circle at top, #1e3a8a 0%, #081224 25%, #040b18 70%);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
 }
 
-body::before{
-content:"";
-position:fixed;
-width:700px;
-height:700px;
-background:#2563eb;
-filter:blur(250px);
-opacity:.12;
-top:-300px;
-right:-200px;
-pointer-events:none;
+body::before {
+  content: "";
+  position: fixed;
+  width: 700px;
+  height: 700px;
+  background: var(--blue);
+  filter: blur(250px);
+  opacity: .12;
+  top: -300px;
+  right: -200px;
+  pointer-events: none;
+  z-index: -1;
 }
 
-body::after{
-content:"";
-position:fixed;
-width:500px;
-height:500px;
-background:#7c3aed;
-filter:blur(250px);
-opacity:.08;
-bottom:-250px;
-left:-100px;
-pointer-events:none;
+body::after {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: var(--purple);
+  filter: blur(250px);
+  opacity: .08;
+  bottom: -250px;
+  left: -100px;
+  pointer-events: none;
+  z-index: -1;
 }
 
-.container{
-max-width:1400px;
-margin:auto;
-padding:40px;
+.container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 40px;
 }
 
-.hero{
-text-align:center;
-padding:80px 20px 60px;
+.hero {
+  text-align: center;
+  padding: 80px 20px 60px;
 }
 
-.hero h1{
-font-size:4rem;
-font-weight:800;
-letter-spacing:-2px;
-margin-bottom:15px;
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin-bottom: 15px;
 }
 
-.hero p{
-color:var(--muted);
-font-size:1.1rem;
-margin-bottom:35px;
+.hero p {
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin-bottom: 35px;
 }
 
-.search-box{
-max-width:700px;
-margin:auto;
+.search-box {
+  max-width: 700px;
+  margin: auto;
+  position: relative;
 }
 
-.search-box input{
-width:100%;
-padding:18px 25px;
-background:rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.08);
-border-radius:16px;
-color:white;
-font-size:16px;
-backdrop-filter:blur(15px);
-outline:none;
+.search-box input {
+  width: 100%;
+  padding: 18px 25px;
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 16px;
+  color: white;
+  font-size: 16px;
+  backdrop-filter: blur(15px);
+  outline: none;
+  transition: all 0.3s ease;
 }
 
-.section-title{
-font-size:1.8rem;
-font-weight:700;
-margin-bottom:25px;
+.search-box input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:25px;
+.search-filters {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.card{
-background:var(--card);
-border:1px solid var(--border);
-backdrop-filter:blur(18px);
-border-radius:24px;
-padding:28px;
-transition:.3s ease;
-position:relative;
-overflow:hidden;
+.filter-btn {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .12);
+  color: var(--muted);
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
 }
 
-.card::before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-right:0;
-height:1px;
-background:linear-gradient(
-90deg,
-transparent,
-rgba(255,255,255,.4),
-transparent
-);
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: white;
 }
 
-.card:hover{
-transform:translateY(-8px);
-border-color:rgba(59,130,246,.4);
-box-shadow:0 20px 50px rgba(59,130,246,.15);
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.logo{
-width:72px;
-height:72px;
-border-radius:18px;
-margin-bottom:20px;
-object-fit:cover;
-background:#111827;
-padding:10px;
+.section-title.recently-added::before {
+  content: "✨";
+  font-size: 1.5rem;
 }
 
-.card h2{
-font-size:1.3rem;
-margin-bottom:8px;
+.section-title.coming-soon::before {
+  content: "🚀";
+  font-size: 1.5rem;
 }
 
-.version{
-display:inline-block;
-padding:6px 12px;
-background:rgba(59,130,246,.15);
-border:1px solid rgba(59,130,246,.25);
-border-radius:999px;
-font-size:.85rem;
-margin-bottom:15px;
+.section-divider {
+  margin-top: 60px;
+  margin-bottom: 30px;
+  text-align: center;
+  opacity: 0.6;
 }
 
-.card p{
-color:var(--muted);
-line-height:1.6;
-margin-bottom:25px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
 }
 
-.button{
-display:inline-flex;
-align-items:center;
-gap:10px;
-padding:14px 20px;
-background:linear-gradient(
-135deg,
-#2563eb,
-#3b82f6
-);
-color:white;
-text-decoration:none;
-border-radius:14px;
-font-weight:600;
-transition:.2s;
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(18px);
+  border-radius: 24px;
+  padding: 28px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-.button:hover{
-transform:scale(1.03);
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .4), transparent);
 }
 
-.footer{
-text-align:center;
-padding:80px 20px 30px;
-color:var(--muted);
+.card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(59, 130, 246, .4);
+  box-shadow: 0 20px 50px rgba(59, 130, 246, .15);
 }
 
-@media(max-width:768px){
-
-.hero h1{
-font-size:2.5rem;
+.logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+  object-fit: cover;
+  background: #111827;
+  padding: 10px;
 }
 
-.container{
-padding:20px;
+.card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  font-weight: 600;
 }
 
+.version {
+  display: inline-block;
+  padding: 6px 12px;
+  background: rgba(59, 130, 246, .15);
+  border: 1px solid rgba(59, 130, 246, .25);
+  border-radius: 999px;
+  font-size: .85rem;
+  margin-bottom: 15px;
+  color: var(--blue);
+}
+
+.card p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 25px;
+  flex-grow: 1;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #2563eb, var(--blue));
+  color: white;
+  text-decoration: none;
+  border-radius: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, .3);
+}
+
+.button.coming-soon {
+  background: linear-gradient(135deg, #6b7280, #9ca3af);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.footer {
+  text-align: center;
+  padding: 80px 20px 30px;
+  color: var(--muted);
+}
+
+.footer p:last-child {
+  margin-top: 20px;
+  color: var(--purple);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+@media(max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .button {
+    width: 100%;
+  }
 }
 
 </style>
@@ -234,177 +328,250 @@ Adobe Applications • Plugins • Creative Resources
 <input
 type="text"
 id="search"
-placeholder="Search software..."
+placeholder="Search by name, category, or description..."
 >
+<div class="search-filters">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="Adobe">Adobe</button>
+  <button class="filter-btn" data-filter="Video Editing">Video Editing</button>
+  <button class="filter-btn" data-filter="Photo">Photo</button>
+  <button class="filter-btn" data-filter="available">Available Only</button>
+</div>
 </div>
 
 </section>
+
+<h2 class="section-title recently-added">
+Recently Added
+</h2>
+
+<div class="grid" id="recentlyAddedGrid">
+</div>
 
 <h2 class="section-title">
 Featured Software
 </h2>
 
 <div class="grid" id="softwareGrid">
-
-<!-- AFTER EFFECTS -->
-
-<div class="card">
-
-<img
-class="logo"
-src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg"
-alt="After Effects"
->
-
-<h2>Adobe After Effects</h2>
-
-<div class="version">
-Motion Graphics
 </div>
 
-<p>
-Professional animation, compositing and visual effects.
-</p>
+<h2 class="section-title coming-soon section-divider">
+Coming Soon
+</h2>
 
-<a
-class="button"
-href="YOUR_DRIVE_LINK_HERE"
-target="_blank"
->
-Open Folder
-</a>
-
-</div>
-
-<!-- PHOTOSHOP -->
-
-<div class="card">
-
-<img
-class="logo"
-src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg"
-alt="Photoshop"
->
-
-<h2>Adobe Photoshop</h2>
-
-<div class="version">
-Photo Editing
-</div>
-
-<p>
-Industry-leading image editing and graphic design software.
-</p>
-
-<a
-class="button"
-href="YOUR_DRIVE_LINK_HERE"
-target="_blank"
->
-Open Folder
-</a>
-
-</div>
-
-<!-- PREMIERE -->
-
-<div class="card">
-
-<img
-class="logo"
-src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg"
-alt="Premiere"
->
-
-<h2>Adobe Premiere Pro</h2>
-
-<div class="version">
-Video Editing
-</div>
-
-<p>
-Professional timeline editing, color grading and export tools.
-</p>
-
-<a
-class="button"
-href="YOUR_DRIVE_LINK_HERE"
-target="_blank"
->
-Open Folder
-</a>
-
-</div>
-
-<!-- HIGGS -->
-
-<div class="card">
-
-<img
-class="logo"
-src="https://cdn-icons-png.flaticon.com/512/6062/6062646.png"
-alt="Plugins"
->
-
-<h2>Higgs Plugins</h2>
-
-<div class="version">
-Plugin Collection
-</div>
-
-<p>
-Tools, presets, transitions, effects and workflow extensions.
-</p>
-
-<a
-class="button"
-href="YOUR_DRIVE_LINK_HERE"
-target="_blank"
->
-Open Folder
-</a>
-
-</div>
-
+<div class="grid" id="comingSoonGrid">
 </div>
 
 <div class="footer">
-
-Pringlez Software Hub
-
+<p>Pringlez Software Hub</p>
+<p style="margin-top:20px;color:#7c3aed;font-size:0.95rem;">✨ More coming soon...</p>
 </div>
 
 </div>
 
 <script>
+// SOFTWARE DATABASE - References links from LINKS config above
+const software = [
+  {
+    name: "Adobe After Effects",
+    category: "Motion Graphics",
+    desc: "Professional animation, compositing and visual effects.",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg",
+    link: LINKS.afterEffects,
+    recently: true
+  },
+  {
+    name: "Adobe Photoshop",
+    category: "Photo Editing",
+    desc: "Industry-leading image editing and graphic design software.",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg",
+    link: LINKS.photoshop,
+    recently: true
+  },
+  {
+    name: "Adobe Premiere Pro",
+    category: "Video Editing",
+    desc: "Professional timeline editing, color grading and export tools.",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg",
+    link: LINKS.premierePro
+  },
+  {
+    name: "Adobe Illustrator 2026",
+    category: "Graphic Design",
+    desc: "Vector graphics editor for creating illustrations and designs.",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg",
+    link: LINKS.illustrator2026,
+    recently: true
+  },
+  {
+    name: "Adobe Lightroom Classic 2026",
+    category: "Photo Organization",
+    desc: "Professional photo management and editing software.",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Lightroom_CC_icon.svg",
+    link: LINKS.lightroomClassic2026
+  },
+  {
+    name: "Adobe Lightroom",
+    category: "Cloud Photography",
+    desc: "Cloud-based photo editing and organization platform.",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Lightroom_CC_icon.svg",
+    link: LINKS.lightroom
+  },
+  {
+    name: "Adobe XD",
+    category: "UI/UX Design",
+    desc: "Design and prototype user interfaces for apps and websites.",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg",
+    link: LINKS.xd
+  },
+  {
+    name: "Adobe Dreamweaver",
+    category: "Web Development",
+    desc: "Professional HTML, CSS and web development environment.",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/6/62/Adobe_Dreamweaver_CC_icon.svg",
+    link: LINKS.dreamweaver
+  },
+  {
+    name: "Adobe Media Encoder 2026",
+    category: "Media Processing",
+    desc: "Batch processing and encoding for video and audio files.",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Adobe_Media_Encoder_CC_icon.svg",
+    link: LINKS.mediaEncoder2026
+  },
+  {
+    name: "Higgs Plugins",
+    category: "Plugin Collection",
+    desc: "Tools, presets, transitions, effects and workflow extensions.",
+    icon: "https://cdn-icons-png.flaticon.com/512/6062/6062646.png",
+    link: LINKS.higgsPlugins
+  },
+  {
+    name: "uTorrent Pro",
+    category: "File Sharing",
+    desc: "Lightweight and efficient torrent client with advanced features.",
+    icon: "https://www.utorrent.com/intl/en/logo-top.png",
+    link: LINKS.utorrentPro
+  },
+  {
+    name: "Wondershare Filmora",
+    category: "Video Editing",
+    desc: "Easy-to-use video editing software with effects and transitions.",
+    icon: "https://www.wondershare.com/images/product/filmora/filmora12.png",
+    link: LINKS.filmora
+  },
+  {
+    name: "Microsoft Office 365 ProPlus",
+    category: "Office Suite",
+    desc: "Online installer for Microsoft Office with cloud integration.",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/0/0d/Microsoft_Office_logo_%282013-2019%29.svg",
+    link: LINKS.office365
+  },
+  {
+    name: "WinRAR",
+    category: "File Compression",
+    desc: "Powerful compression and file extraction utility.",
+    icon: "https://www.rarlab.com/rar_icon.png",
+    link: LINKS.winrar
+  },
+  {
+    name: "Maxon Cinema 4D",
+    category: "3D Modeling",
+    desc: "Professional 3D modeling, animation and rendering software.",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Cinema_4D_logo_%28Icon%29.svg",
+    link: LINKS.cinema4d
+  }
+];
 
-const searchInput =
-document.getElementById("search");
+// Create card HTML
+function createCard(app) {
+  const isComingSoon = !app.link || app.link.trim() === "";
+  const buttonClass = isComingSoon ? "button coming-soon" : "button";
+  const buttonText = isComingSoon ? "Coming Soon" : "Open Folder";
+  
+  return `
+    <img class="logo" src="${app.icon}" alt="${app.name}">
+    <h2>${app.name}</h2>
+    <div class="version">${app.category}</div>
+    <p>${app.desc}</p>
+    <a class="${buttonClass}" ${!isComingSoon ? `href="${app.link}" target="_blank"` : ""}>
+      ${buttonText}
+    </a>
+  `;
+}
 
-searchInput.addEventListener(
-"keyup",
-function(){
+// Generate cards by category
+function renderSoftware() {
+  const recentGrid = document.getElementById("recentlyAddedGrid");
+  const featuredGrid = document.getElementById("softwareGrid");
+  const comingSoonGrid = document.getElementById("comingSoonGrid");
+  
+  recentGrid.innerHTML = "";
+  featuredGrid.innerHTML = "";
+  comingSoonGrid.innerHTML = "";
+  
+  software.forEach(app => {
+    const isComingSoon = !app.link || app.link.trim() === "";
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = createCard(app);
+    card.dataset.name = app.name.toLowerCase();
+    card.dataset.category = app.category.toLowerCase();
+    card.dataset.desc = app.desc.toLowerCase();
+    card.dataset.available = !isComingSoon;
+    
+    if (isComingSoon) {
+      comingSoonGrid.appendChild(card);
+    } else if (app.recently) {
+      recentGrid.appendChild(card);
+    } else {
+      featuredGrid.appendChild(card);
+    }
+  });
+}
 
-const filter =
-this.value.toLowerCase();
+// Enhanced search with filters
+const searchInput = document.getElementById("search");
+const filterBtns = document.querySelectorAll(".filter-btn");
+let activeFilter = "all";
 
-document
-.querySelectorAll(".card")
-.forEach(card=>{
-
-const text =
-card.innerText.toLowerCase();
-
-card.style.display =
-text.includes(filter)
-? "block"
-: "none";
-
+searchInput.addEventListener("keyup", performSearch);
+filterBtns.forEach(btn => {
+  btn.addEventListener("click", function() {
+    filterBtns.forEach(b => b.classList.remove("active"));
+    this.classList.add("active");
+    activeFilter = this.dataset.filter;
+    performSearch();
+  });
 });
 
+function performSearch() {
+  const searchTerm = searchInput.value.toLowerCase();
+  const allCards = document.querySelectorAll(".card");
+  
+  allCards.forEach(card => {
+    const name = card.dataset.name || "";
+    const category = card.dataset.category || "";
+    const desc = card.dataset.desc || "";
+    const available = card.dataset.available === "true";
+    
+    const matchesSearch = !searchTerm || 
+      name.includes(searchTerm) || 
+      category.includes(searchTerm) || 
+      desc.includes(searchTerm);
+    
+    let matchesFilter = true;
+    if (activeFilter === "available") {
+      matchesFilter = available;
+    } else if (activeFilter !== "all") {
+      matchesFilter = name.includes(activeFilter) || category.includes(activeFilter);
+    }
+    
+    card.style.display = (matchesSearch && matchesFilter) ? "block" : "none";
+  });
 }
-);
 
+// Initialize
+renderSoftware();
 </script>
 
 </body>
