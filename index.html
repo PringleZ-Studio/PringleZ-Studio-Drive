@@ -372,115 +372,127 @@ Coming Soon
 <script>
 // SOFTWARE DATABASE - References links from LINKS config above
 const software = [
-  {
-    name: "Adobe After Effects",
-    category: "Motion Graphics",
-    desc: "Professional animation, compositing and visual effects.",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg",
-    link: LINKS.afterEffects,
-    recently: true
-  },
-  {
-    name: "Adobe Photoshop",
-    category: "Photo Editing",
-    desc: "Industry-leading image editing and graphic design software.",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg",
-    link: LINKS.photoshop,
-    recently: true
-  },
-  {
-    name: "Adobe Premiere Pro",
-    category: "Video Editing",
-    desc: "Professional timeline editing, color grading and export tools.",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg",
-    link: LINKS.premierePro
-  },
-  {
-    name: "Adobe Illustrator 2026",
-    category: "Graphic Design",
-    desc: "Vector graphics editor for creating illustrations and designs.",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg",
-    link: LINKS.illustrator2026,
-    recently: true
-  },
-  {
-    name: "Adobe Lightroom Classic 2026",
-    category: "Photo Organization",
-    desc: "Professional photo management and editing software.",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Lightroom_CC_icon.svg",
-    link: LINKS.lightroomClassic2026
-  },
-  {
-    name: "Adobe Lightroom",
-    category: "Cloud Photography",
-    desc: "Cloud-based photo editing and organization platform.",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Lightroom_CC_icon.svg",
-    link: LINKS.lightroom
-  },
-  {
-    name: "Adobe XD",
-    category: "UI/UX Design",
-    desc: "Design and prototype user interfaces for apps and websites.",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg",
-    link: LINKS.xd
-  },
-  {
-    name: "Adobe Dreamweaver",
-    category: "Web Development",
-    desc: "Professional HTML, CSS and web development environment.",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/6/62/Adobe_Dreamweaver_CC_icon.svg",
-    link: LINKS.dreamweaver
-  },
-  {
-    name: "Adobe Media Encoder 2026",
-    category: "Media Processing",
-    desc: "Batch processing and encoding for video and audio files.",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Adobe_Media_Encoder_CC_icon.svg",
-    link: LINKS.mediaEncoder2026
-  },
-  {
-    name: "Higgs Plugins",
-    category: "Plugin Collection",
-    desc: "Tools, presets, transitions, effects and workflow extensions.",
-    icon: "https://cdn-icons-png.flaticon.com/512/6062/6062646.png",
-    link: LINKS.higgsPlugins
-  },
-  {
-    name: "uTorrent Pro",
-    category: "File Sharing",
-    desc: "Lightweight and efficient torrent client with advanced features.",
-    icon: "https://www.utorrent.com/intl/en/logo-top.png",
-    link: LINKS.utorrentPro
-  },
-  {
-    name: "Wondershare Filmora",
-    category: "Video Editing",
-    desc: "Easy-to-use video editing software with effects and transitions.",
-    icon: "https://www.wondershare.com/images/product/filmora/filmora12.png",
-    link: LINKS.filmora
-  },
-  {
-    name: "Microsoft Office 365 ProPlus",
-    category: "Office Suite",
-    desc: "Online installer for Microsoft Office with cloud integration.",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/0/0d/Microsoft_Office_logo_%282013-2019%29.svg",
-    link: LINKS.office365
-  },
-  {
-    name: "WinRAR",
-    category: "File Compression",
-    desc: "Powerful compression and file extraction utility.",
-    icon: "https://www.rarlab.com/rar_icon.png",
-    link: LINKS.winrar
-  },
-  {
-    name: "Maxon Cinema 4D",
-    category: "3D Modeling",
-    desc: "Professional 3D modeling, animation and rendering software.",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Cinema_4D_logo_%28Icon%29.svg",
-    link: LINKS.cinema4d
-  }
+{
+name: "Adobe After Effects",
+category: "Motion Graphics",
+desc: "Professional animation, compositing and visual effects.",
+icon: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg",
+link: LINKS.afterEffects,
+recently: true
+},
+{
+name: "Adobe Photoshop",
+category: "Photo Editing",
+desc: "Industry-leading image editing and graphic design software.",
+icon: "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg",
+link: LINKS.photoshop,
+recently: true
+},
+{
+name: "Adobe Premiere Pro",
+category: "Video Editing",
+desc: "Professional timeline editing, color grading and export tools.",
+icon: "https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg",
+link: LINKS.premiere
+},
+{
+name: "Adobe Illustrator",
+category: "Graphic Design",
+desc: "Vector graphics editor for creating illustrations and designs.",
+icon: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg",
+link: LINKS.illustrator,
+recently: true
+},
+{
+name: "Adobe Lightroom Classic",
+category: "Photo Organization",
+desc: "Professional photo management and editing software.",
+icon: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Lightroom_CC_icon.svg",
+link: LINKS.lightroomClassic
+},
+{
+name: "Adobe Lightroom",
+category: "Cloud Photography",
+desc: "Cloud-based photo editing and organization platform.",
+icon: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Lightroom_CC_icon.svg",
+link: LINKS.lightroom
+},
+{
+name: "Adobe XD",
+category: "UI / UX Design",
+desc: "Design and prototype user interfaces for apps and websites.",
+icon: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg",
+link: LINKS.xd
+},
+{
+name: "Adobe Dreamweaver",
+category: "Web Development",
+desc: "Professional HTML, CSS and web development environment.",
+icon: "https://upload.wikimedia.org/wikipedia/commons/6/62/Adobe_Dreamweaver_CC_icon.svg",
+link: LINKS.dreamweaver
+},
+{
+name: "Adobe Media Encoder",
+category: "Media Processing",
+desc: "Batch processing and encoding for video and audio files.",
+icon: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Adobe_Media_Encoder_CC_icon.svg",
+link: LINKS.mediaEncoder
+},
+
+// Replace with local icon
+{
+name: "Higgs Plugins",
+category: "Plugin Collection",
+desc: "Tools, presets, transitions, effects and workflow extensions.",
+icon: "assets/icons/higgs.png",
+link: LINKS.higgsPlugins,
+recently: true
+},
+
+// Replace with local icon
+{
+name: "uTorrent Pro",
+category: "Downloads",
+desc: "Lightweight and efficient torrent client.",
+icon: "assets/icons/utorrent.png",
+link: LINKS.utorrentPro
+},
+
+// Replace with local icon
+{
+name: "Wondershare Filmora",
+category: "Video Editing",
+desc: "Easy-to-use video editing software with effects and transitions.",
+icon: "assets/icons/filmora.png",
+link: LINKS.filmora
+},
+
+{
+name: "Microsoft Office 365 ProPlus",
+category: "Office Suite",
+desc: "Word, Excel, PowerPoint, Outlook and more.",
+icon: "https://upload.wikimedia.org/wikipedia/commons/0/0d/Microsoft_Office_logo_%282013-2019%29.svg",
+link: LINKS.office365
+},
+
+// Replace with local icon
+{
+name: "WinRAR",
+category: "File Compression",
+desc: "Powerful compression and extraction utility.",
+icon: "assets/icons/winrar.png",
+link: LINKS.winrar
+},
+
+{
+name: "Maxon Cinema 4D",
+category: "3D Modeling",
+desc: "Professional 3D modeling, animation and rendering software.",
+icon: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Cinema_4D_logo_%28Icon%29.svg",
+link: LINKS.cinema4d
+}
 ];
+
 
 // Create card HTML
 function createCard(app) {
