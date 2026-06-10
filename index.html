@@ -12,34 +12,44 @@
 <!-- Update all your download links here! Leave blank "" for Coming Soon items -->
 <script>
 const LINKS = {
-  afterEffects: "",
-  photoshop: "",
-  premierePro: "",
-  illustrator2026: "",
-  lightroomClassic2026: "",
-  lightroom: "",
-  xd: "",
-  dreamweaver: "",
-  mediaEncoder2026: "",
-  higgsPlugins: "",
+  afterEffects: "https://example.com/after-effects",
+  photoshop: "https://example.com/photoshop",
+  premierePro: "https://example.com/premiere",
+  illustrator2026: "https://example.com/illustrator",
+  lightroomClassic2026: "https://example.com/lightroom-classic",
+  lightroom: "https://example.com/lightroom",
+  xd: "https://example.com/xd",
+  dreamweaver: "https://example.com/dreamweaver",
+  mediaEncoder2026: "https://example.com/media-encoder",
+  higgsPlugins: "https://example.com/higgs",
   utorrentPro: "",
   filmora: "",
   office365: "",
   winrar: "",
   cinema4d: ""
 };
+
+// ===== POPUP NOTIFICATION LINK =====
+const POPUP_LINK = "https://example.com/higgs-plugins"; // Update this with your Higgs Plugins link
+// ===== END POPUP LINK =====
 </script>
 <!-- ===== END LINKS ===== -->
 
 <style>
 :root {
-  --bg: #040b18;
-  --card: rgba(255, 255, 255, .06);
-  --border: rgba(255, 255, 255, .08);
+  --bg: #0f1419;
+  --bg-light: #1a1f2e;
+  --card: rgba(255, 255, 255, .08);
+  --border: rgba(255, 255, 255, .12);
   --text: #ffffff;
+  --text-secondary: #e0e0e0;
   --muted: #9ca3af;
   --blue: #3b82f6;
+  --blue-dark: #1e40af;
   --purple: #7c3aed;
+  --purple-dark: #6d28d9;
+  --accent: #06b6d4;
+  --success: #10b981;
 }
 
 * {
@@ -49,8 +59,12 @@ const LINKS = {
   font-family: 'Inter', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: radial-gradient(circle at top, #1e3a8a 0%, #081224 25%, #040b18 70%);
+  background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 50%, #0f1419 100%);
   color: var(--text);
   min-height: 100vh;
   overflow-x: hidden;
@@ -60,29 +74,41 @@ body {
 body::before {
   content: "";
   position: fixed;
-  width: 700px;
-  height: 700px;
+  width: 800px;
+  height: 800px;
   background: var(--blue);
-  filter: blur(250px);
-  opacity: .12;
-  top: -300px;
+  filter: blur(300px);
+  opacity: .15;
+  top: -400px;
   right: -200px;
   pointer-events: none;
   z-index: -1;
+  animation: float 20s ease-in-out infinite;
 }
 
 body::after {
   content: "";
   position: fixed;
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 600px;
   background: var(--purple);
-  filter: blur(250px);
-  opacity: .08;
-  bottom: -250px;
+  filter: blur(300px);
+  opacity: .12;
+  bottom: -300px;
   left: -100px;
   pointer-events: none;
   z-index: -1;
+  animation: float-reverse 25s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, 30px); }
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-30px, -30px); }
 }
 
 .container {
@@ -93,20 +119,36 @@ body::after {
 
 .hero {
   text-align: center;
-  padding: 80px 20px 60px;
+  padding: 100px 20px 60px;
 }
 
 .hero h1 {
-  font-size: 4rem;
-  font-weight: 800;
+  font-size: 4.5rem;
+  font-weight: 900;
   letter-spacing: -2px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--text) 0%, var(--blue) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeInDown 0.8s ease;
 }
 
 .hero p {
-  color: var(--muted);
-  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
   margin-bottom: 35px;
+  animation: fadeInUp 0.8s ease 0.1s both;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .search-box {
@@ -128,9 +170,14 @@ body::after {
   transition: all 0.3s ease;
 }
 
+.search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 .search-box input:focus {
   border-color: var(--blue);
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  background: rgba(255, 255, 255, .08);
 }
 
 .search-filters {
@@ -150,39 +197,54 @@ body::after {
   cursor: pointer;
   font-size: 0.9rem;
   transition: all 0.2s ease;
+  font-weight: 600;
 }
 
-.filter-btn:hover,
-.filter-btn.active {
-  background: var(--blue);
+.filter-btn:hover {
+  background: rgba(59, 130, 246, 0.2);
   border-color: var(--blue);
+  color: var(--blue);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, var(--blue), var(--purple));
+  border-color: transparent;
   color: white;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
 .section-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 25px;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 35px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  background: linear-gradient(135deg, var(--text) 0%, var(--blue) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .section-title.recently-added::before {
   content: "✨";
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  background: none;
+  -webkit-text-fill-color: unset;
 }
 
 .section-title.coming-soon::before {
   content: "🚀";
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  background: none;
+  -webkit-text-fill-color: unset;
 }
 
 .section-divider {
-  margin-top: 60px;
-  margin-bottom: 30px;
+  margin-top: 80px;
+  margin-bottom: 40px;
   text-align: center;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .grid {
@@ -192,16 +254,29 @@ body::after {
 }
 
 .card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  backdrop-filter: blur(18px);
-  border-radius: 24px;
-  padding: 28px;
-  transition: all 0.3s ease;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(124, 58, 237, 0.05));
+  border: 1px solid rgba(59, 130, 246, .2);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 32px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  animation: cardFadeIn 0.6s ease-out;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .card::before {
@@ -210,41 +285,80 @@ body::after {
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .4), transparent);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, .6), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(59, 130, 246, .4);
-  box-shadow: 0 20px 50px rgba(59, 130, 246, .15);
+  transform: translateY(-12px);
+  border-color: rgba(59, 130, 246, .5);
+  box-shadow: 0 24px 60px rgba(59, 130, 246, .25);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(124, 58, 237, 0.1));
 }
 
 .logo {
-  width: 72px;
-  height: 72px;
-  border-radius: 18px;
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
   margin-bottom: 20px;
-  object-fit: cover;
-  background: #111827;
-  padding: 10px;
+  object-fit: contain;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(124, 58, 237, 0.2));
+  padding: 12px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+  animation: logoLoad 0.4s ease-out;
+}
+
+@keyframes logoLoad {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.card:hover .logo {
+  transform: scale(1.1) rotate(5deg);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(124, 58, 237, 0.3));
 }
 
 .card h2 {
-  font-size: 1.3rem;
-  margin-bottom: 8px;
-  font-weight: 600;
+  font-size: 1.35rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+  color: var(--text);
+  transition: color 0.3s ease;
+}
+
+.card:hover h2 {
+  color: var(--blue);
 }
 
 .version {
   display: inline-block;
-  padding: 6px 12px;
-  background: rgba(59, 130, 246, .15);
-  border: 1px solid rgba(59, 130, 246, .25);
-  border-radius: 999px;
+  padding: 8px 14px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(124, 58, 237, 0.1));
+  border: 1px solid rgba(59, 130, 246, .3);
+  border-radius: 50px;
   font-size: .85rem;
   margin-bottom: 15px;
   color: var(--blue);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.card:hover .version {
+  background: rgba(59, 130, 246, 0.3);
+  border-color: rgba(59, 130, 246, .5);
 }
 
 .card p {
@@ -259,45 +373,80 @@ body::after {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 14px 20px;
-  background: linear-gradient(135deg, #2563eb, var(--blue));
+  padding: 14px 24px;
+  background: linear-gradient(135deg, var(--blue), var(--purple));
   color: white;
   text-decoration: none;
-  border-radius: 14px;
-  font-weight: 600;
-  transition: all 0.2s ease;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
   border: none;
   cursor: pointer;
   width: 100%;
+  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: left 0.4s ease;
+}
+
+.button:hover::after {
+  left: 100%;
 }
 
 .button:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 25px rgba(59, 130, 246, .3);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(59, 130, 246, .4);
+}
+
+.button:active {
+  transform: translateY(0);
 }
 
 .button.coming-soon {
-  background: linear-gradient(135deg, #6b7280, #9ca3af);
+  background: linear-gradient(135deg, #4b5563, #6b7280);
   cursor: not-allowed;
   pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .footer {
   text-align: center;
-  padding: 80px 20px 30px;
+  padding: 100px 20px 40px;
   color: var(--muted);
+  border-top: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.footer p {
+  font-weight: 500;
 }
 
 .footer p:last-child {
   margin-top: 20px;
-  color: var(--purple);
+  background: linear-gradient(135deg, var(--purple), var(--blue));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 @media(max-width: 768px) {
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
   }
 
   .container {
@@ -307,6 +456,84 @@ body::after {
   .button {
     width: 100%;
   }
+
+  .notification-popup {
+    max-width: calc(100vw - 40px);
+    right: 20px;
+    left: 20px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+
+.notification-popup {
+  position: fixed;
+  bottom: -400px;
+  right: 20px;
+  background: linear-gradient(135deg, var(--blue), var(--purple));
+  color: white;
+  padding: 24px 28px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(59, 130, 246, 0.4);
+  max-width: 320px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  z-index: 1000;
+  animation: slideUp 0.5s cubic-bezier(0.23, 1, 0.320, 1) forwards;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+@keyframes slideUp {
+  to {
+    bottom: 20px;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    bottom: 20px;
+  }
+  to {
+    bottom: -400px;
+  }
+}
+
+.notification-popup.hide {
+  animation: slideDown 0.5s cubic-bezier(0.23, 1, 0.320, 1) forwards;
+}
+
+.notification-popup .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.notification-popup .close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--muted);
+}
+
+.empty-state p {
+  font-size: 1.1rem;
 }
 
 </style>
@@ -393,22 +620,22 @@ name: "Adobe Premiere Pro",
 category: "Video Editing",
 desc: "Professional timeline editing, color grading and export tools.",
 icon: "https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg",
-link: LINKS.premiere
+link: LINKS.premierePro
 },
 {
-name: "Adobe Illustrator",
+name: "Adobe Illustrator 2026",
 category: "Graphic Design",
 desc: "Vector graphics editor for creating illustrations and designs.",
 icon: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg",
-link: LINKS.illustrator,
+link: LINKS.illustrator2026,
 recently: true
 },
 {
-name: "Adobe Lightroom Classic",
+name: "Adobe Lightroom Classic 2026",
 category: "Photo Organization",
 desc: "Professional photo management and editing software.",
 icon: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Lightroom_CC_icon.svg",
-link: LINKS.lightroomClassic
+link: LINKS.lightroomClassic2026
 },
 {
 name: "Adobe Lightroom",
@@ -432,11 +659,11 @@ icon: "https://upload.wikimedia.org/wikipedia/commons/6/62/Adobe_Dreamweaver_CC_
 link: LINKS.dreamweaver
 },
 {
-name: "Adobe Media Encoder",
+name: "Adobe Media Encoder 2026",
 category: "Media Processing",
 desc: "Batch processing and encoding for video and audio files.",
 icon: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Adobe_Media_Encoder_CC_icon.svg",
-link: LINKS.mediaEncoder
+link: LINKS.mediaEncoder2026
 },
 
 // Replace with local icon
@@ -444,7 +671,7 @@ link: LINKS.mediaEncoder
 name: "Higgs Plugins",
 category: "Plugin Collection",
 desc: "Tools, presets, transitions, effects and workflow extensions.",
-icon: "assets/icons/higgs.png",
+icon: "https://cdn-icons-png.flaticon.com/512/6062/6062646.png",
 link: LINKS.higgsPlugins,
 recently: true
 },
@@ -454,7 +681,7 @@ recently: true
 name: "uTorrent Pro",
 category: "Downloads",
 desc: "Lightweight and efficient torrent client.",
-icon: "assets/icons/utorrent.png",
+icon: "https://www.utorrent.com/intl/en/logo-top.png",
 link: LINKS.utorrentPro
 },
 
@@ -463,7 +690,7 @@ link: LINKS.utorrentPro
 name: "Wondershare Filmora",
 category: "Video Editing",
 desc: "Easy-to-use video editing software with effects and transitions.",
-icon: "assets/icons/filmora.png",
+icon: "https://www.wondershare.com/images/product/filmora/filmora12.png",
 link: LINKS.filmora
 },
 
@@ -480,7 +707,7 @@ link: LINKS.office365
 name: "WinRAR",
 category: "File Compression",
 desc: "Powerful compression and extraction utility.",
-icon: "assets/icons/winrar.png",
+icon: "https://www.winrar.com/symbols/winrar.png",
 link: LINKS.winrar
 },
 
@@ -521,6 +748,10 @@ function renderSoftware() {
   featuredGrid.innerHTML = "";
   comingSoonGrid.innerHTML = "";
   
+  let recentCount = 0;
+  let featuredCount = 0;
+  let comingSoonCount = 0;
+  
   software.forEach(app => {
     const isComingSoon = !app.link || app.link.trim() === "";
     const card = document.createElement("div");
@@ -533,12 +764,26 @@ function renderSoftware() {
     
     if (isComingSoon) {
       comingSoonGrid.appendChild(card);
+      comingSoonCount++;
     } else if (app.recently) {
       recentGrid.appendChild(card);
+      recentCount++;
     } else {
       featuredGrid.appendChild(card);
+      featuredCount++;
     }
   });
+  
+  // Show empty states if needed
+  if (recentCount === 0) {
+    recentGrid.innerHTML = '<div class="empty-state"><p>No recently added items</p></div>';
+  }
+  if (featuredCount === 0) {
+    featuredGrid.innerHTML = '<div class="empty-state"><p>No featured items available</p></div>';
+  }
+  if (comingSoonCount === 0) {
+    comingSoonGrid.innerHTML = '<div class="empty-state"><p>No coming soon items</p></div>';
+  }
 }
 
 // Enhanced search with filters
@@ -584,6 +829,60 @@ function performSearch() {
 
 // Initialize
 renderSoftware();
+
+// ===== NOTIFICATION POPUP SYSTEM =====
+let notificationTimeout;
+let notificationInterval;
+let isNotificationVisible = false;
+
+function createNotificationPopup() {
+  const popup = document.createElement("div");
+  popup.className = "notification-popup";
+  popup.id = "notificationPopup";
+  popup.innerHTML = `
+    <button class="close-btn" onclick="hideNotification()">✕</button>
+    <div style="padding-right: 20px;">
+      <strong style="display: block; margin-bottom: 8px; font-size: 1.05rem;">⚡ Check Out!</strong>
+      <p style="margin: 0 0 12px 0; line-height: 1.5;">Higgs Plugins for Figma, DaVinci Resolve, Premiere Pro & After Effects</p>
+      <a href="${POPUP_LINK}" target="_blank" style="display: inline-block; padding: 8px 16px; background: rgba(255,255,255,0.2); border-radius: 8px; color: white; text-decoration: none; font-weight: 600; transition: all 0.2s ease; border: 1px solid rgba(255,255,255,0.3);" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">Get Now →</a>
+    </div>
+  `;
+  document.body.appendChild(popup);
+}
+
+function showNotification() {
+  if (isNotificationVisible) return;
+  
+  const popup = document.getElementById("notificationPopup") || createNotificationPopup();
+  popup.classList.remove("hide");
+  isNotificationVisible = true;
+  
+  clearTimeout(notificationTimeout);
+  notificationTimeout = setTimeout(hideNotification, 6000);
+}
+
+function hideNotification() {
+  const popup = document.getElementById("notificationPopup");
+  if (popup) {
+    popup.classList.add("hide");
+    isNotificationVisible = false;
+  }
+}
+
+// Create popup on load
+window.addEventListener("load", () => {
+  createNotificationPopup();
+  
+  // Show notification every 20 seconds
+  showNotification();
+  notificationInterval = setInterval(showNotification, 20000);
+});
+
+// Clean up interval on page unload
+window.addEventListener("beforeunload", () => {
+  clearInterval(notificationInterval);
+  clearTimeout(notificationTimeout);
+});
 </script>
 
 </body>
