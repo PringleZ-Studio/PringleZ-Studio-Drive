@@ -12,16 +12,16 @@
 <!-- Update all your download links here! Leave blank "" for Coming Soon items -->
 <script>
 const LINKS = {
-  afterEffects: "https://example.com/after-effects",
-  photoshop: "https://example.com/photoshop",
-  premierePro: "https://example.com/premiere",
-  illustrator2026: "https://example.com/illustrator",
-  lightroomClassic2026: "https://example.com/lightroom-classic",
-  lightroom: "https://example.com/lightroom",
-  xd: "https://example.com/xd",
-  dreamweaver: "https://example.com/dreamweaver",
-  mediaEncoder2026: "https://example.com/media-encoder",
-  higgsPlugins: "https://example.com/higgs",
+  afterEffects: "https://gofile.io/d/YYnHif",
+  photoshop: "https://gofile.io/d/r9Ucwm",
+  premierePro: "https://gofile.io/d/IYw6DS",
+  illustrator2026: "",
+  lightroomClassic2026: "",
+  lightroom: "",
+  xd: "",
+  dreamweaver: "",
+  mediaEncoder2026: "",
+  higgsPlugins: "https://gofile.io/d/cxMLgI",
   utorrentPro: "",
   filmora: "",
   office365: "",
@@ -30,7 +30,7 @@ const LINKS = {
 };
 
 // ===== POPUP NOTIFICATION LINK =====
-const POPUP_LINK = "https://example.com/higgs-plugins"; // Update this with your Higgs Plugins link
+const POPUP_LINK = "https://gofile.io/d/cxMLgI"; // Update this with your Higgs Plugins link
 // ===== END POPUP LINK =====
 </script>
 <!-- ===== END LINKS ===== -->
@@ -77,7 +77,7 @@ body::before {
   width: 800px;
   height: 800px;
   background: var(--blue);
-  filter: blur(300px);
+  filter: blur(180px);
   opacity: .15;
   top: -400px;
   right: -200px;
@@ -92,7 +92,7 @@ body::after {
   width: 600px;
   height: 600px;
   background: var(--purple);
-  filter: blur(300px);
+  filter: blur(180px);
   opacity: .12;
   bottom: -300px;
   left: -100px;
@@ -188,6 +188,38 @@ body::after {
   justify-content: center;
 }
 
+.top-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px auto 0;
+  max-width: 900px;
+}
+
+.nav-link {
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.accent:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.nav-link.accent {
+  background: linear-gradient(135deg, var(--blue), var(--purple));
+  color: white;
+  border-color: transparent;
+}
+
 .filter-btn {
   padding: 8px 16px;
   background: rgba(255, 255, 255, .06);
@@ -211,6 +243,60 @@ body::after {
   border-color: transparent;
   color: white;
   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.hero-btn {
+  padding: 14px 24px;
+  border-radius: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px);
+}
+
+.hero-btn.secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 24px auto 0;
+  max-width: 760px;
+}
+
+.stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  padding: 10px 16px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.search-info {
+  margin-top: 18px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
 }
 
 .section-title {
@@ -256,7 +342,6 @@ body::after {
 .card {
   background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(124, 58, 237, 0.05));
   border: 1px solid rgba(59, 130, 246, .2);
-  backdrop-filter: blur(20px);
   border-radius: 20px;
   padding: 32px;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
@@ -264,7 +349,7 @@ body::after {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
   animation: cardFadeIn 0.6s ease-out;
 }
 
@@ -364,8 +449,32 @@ body::after {
 .card p {
   color: var(--muted);
   line-height: 1.6;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   flex-grow: 1;
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  border: 1px solid transparent;
+}
+
+.status-chip.available {
+  background: rgba(34, 197, 94, 0.12);
+  color: #a7f3d0;
+  border-color: rgba(34, 197, 94, 0.24);
+}
+
+.status-chip.coming {
+  background: rgba(168, 85, 247, 0.14);
+  color: #d8b4fe;
+  border-color: rgba(168, 85, 247, 0.24);
 }
 
 .button {
@@ -548,8 +657,26 @@ body::after {
 <h1>Pringlez Software Hub</h1>
 
 <p>
-Adobe Applications • Plugins • Creative Resources
+All essential software, plugins and creative tools in one hub.
 </p>
+
+<div class="hero-actions">
+  <a class="hero-btn accent" id="heroHiggsLink" target="_blank">Explore Higgs Plugins</a>
+  <a class="hero-btn secondary" href="#softwareGrid">Browse All Software</a>
+</div>
+
+<div class="hero-stats">
+  <span class="stat-pill">Total <strong id="totalCount">0</strong></span>
+  <span class="stat-pill">Available <strong id="availableCount">0</strong></span>
+  <span class="stat-pill">Coming Soon <strong id="comingSoonCount">0</strong></span>
+</div>
+
+<div class="top-nav">
+  <a class="nav-link" href="#recentlyAddedGrid">Recently Added</a>
+  <a class="nav-link" href="#softwareGrid">Featured</a>
+  <a class="nav-link" href="#comingSoonGrid">Coming Soon</a>
+  <a class="nav-link accent" id="higgsPluginsLink" target="_blank">Higgs Plugins</a>
+</div>
 
 <div class="search-box">
 <input
@@ -565,6 +692,7 @@ placeholder="Search by name, category, or description..."
   <button class="filter-btn" data-filter="available">Available Only</button>
 </div>
 </div>
+<div class="search-info" id="searchInfo">Showing all items.</div>
 
 </section>
 
@@ -681,7 +809,7 @@ recently: true
 name: "uTorrent Pro",
 category: "Downloads",
 desc: "Lightweight and efficient torrent client.",
-icon: "https://www.utorrent.com/intl/en/logo-top.png",
+icon: "https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/utorrent.svg",
 link: LINKS.utorrentPro
 },
 
@@ -690,7 +818,7 @@ link: LINKS.utorrentPro
 name: "Wondershare Filmora",
 category: "Video Editing",
 desc: "Easy-to-use video editing software with effects and transitions.",
-icon: "https://www.wondershare.com/images/product/filmora/filmora12.png",
+icon: "https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/wondershare.svg",
 link: LINKS.filmora
 },
 
@@ -707,7 +835,7 @@ link: LINKS.office365
 name: "WinRAR",
 category: "File Compression",
 desc: "Powerful compression and extraction utility.",
-icon: "https://www.winrar.com/symbols/winrar.png",
+icon: "https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/winrar.svg",
 link: LINKS.winrar
 },
 
@@ -721,6 +849,8 @@ link: LINKS.cinema4d
 ];
 
 
+let cardCache = [];
+
 // Create card HTML
 function createCard(app) {
   const isComingSoon = !app.link || app.link.trim() === "";
@@ -728,11 +858,12 @@ function createCard(app) {
   const buttonText = isComingSoon ? "Coming Soon" : "Open Folder";
   
   return `
-    <img class="logo" src="${app.icon}" alt="${app.name}">
+    <img class="logo" src="${app.icon || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'}" alt="${app.name}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';">
+    <span class="status-chip ${isComingSoon ? 'coming' : 'available'}">${isComingSoon ? 'Coming Soon' : 'Available Now'}</span>
     <h2>${app.name}</h2>
     <div class="version">${app.category}</div>
     <p>${app.desc}</p>
-    <a class="${buttonClass}" ${!isComingSoon ? `href="${app.link}" target="_blank"` : ""}>
+    <a class="${buttonClass}" ${!isComingSoon ? `href="${app.link}" target="_blank" rel="noopener noreferrer"` : ""}>
       ${buttonText}
     </a>
   `;
@@ -752,6 +883,7 @@ function renderSoftware() {
   let featuredCount = 0;
   let comingSoonCount = 0;
   
+  cardCache = [];
   software.forEach(app => {
     const isComingSoon = !app.link || app.link.trim() === "";
     const card = document.createElement("div");
@@ -760,7 +892,8 @@ function renderSoftware() {
     card.dataset.name = app.name.toLowerCase();
     card.dataset.category = app.category.toLowerCase();
     card.dataset.desc = app.desc.toLowerCase();
-    card.dataset.available = !isComingSoon;
+    card.dataset.available = (!isComingSoon).toString();
+    cardCache.push(card);
     
     if (isComingSoon) {
       comingSoonGrid.appendChild(card);
@@ -790,8 +923,13 @@ function renderSoftware() {
 const searchInput = document.getElementById("search");
 const filterBtns = document.querySelectorAll(".filter-btn");
 let activeFilter = "all";
+let searchDebounceTimeout;
 
-searchInput.addEventListener("keyup", performSearch);
+searchInput.addEventListener("input", () => {
+  clearTimeout(searchDebounceTimeout);
+  searchDebounceTimeout = setTimeout(performSearch, 120);
+});
+
 filterBtns.forEach(btn => {
   btn.addEventListener("click", function() {
     filterBtns.forEach(b => b.classList.remove("active"));
@@ -801,11 +939,30 @@ filterBtns.forEach(btn => {
   });
 });
 
+function updateCounters() {
+  const totalCount = software.length;
+  const availableCount = software.filter(item => item.link && item.link.trim()).length;
+  const comingSoonCount = totalCount - availableCount;
+
+  document.getElementById("totalCount").textContent = totalCount;
+  document.getElementById("availableCount").textContent = availableCount;
+  document.getElementById("comingSoonCount").textContent = comingSoonCount;
+}
+
+function updateSearchInfo(visibleCount) {
+  const info = document.getElementById("searchInfo");
+  if (!info) return;
+  const totalCount = software.length;
+  info.textContent = visibleCount === totalCount
+    ? `Showing all ${visibleCount} items.`
+    : `Showing ${visibleCount} of ${totalCount} matching items.`;
+}
+
 function performSearch() {
   const searchTerm = searchInput.value.toLowerCase();
-  const allCards = document.querySelectorAll(".card");
   
-  allCards.forEach(card => {
+  let visibleCount = 0;
+  cardCache.forEach(card => {
     const name = card.dataset.name || "";
     const category = card.dataset.category || "";
     const desc = card.dataset.desc || "";
@@ -823,12 +980,20 @@ function performSearch() {
       matchesFilter = name.includes(activeFilter) || category.includes(activeFilter);
     }
     
-    card.style.display = (matchesSearch && matchesFilter) ? "block" : "none";
+    if (matchesSearch && matchesFilter) {
+      card.style.display = "";
+      visibleCount++;
+    } else {
+      card.style.display = "none";
+    }
   });
+  updateSearchInfo(visibleCount);
 }
 
 // Initialize
 renderSoftware();
+updateCounters();
+updateSearchInfo(software.length);
 
 // ===== NOTIFICATION POPUP SYSTEM =====
 let notificationTimeout;
@@ -848,12 +1013,14 @@ function createNotificationPopup() {
     </div>
   `;
   document.body.appendChild(popup);
+  return popup;
 }
 
 function showNotification() {
   if (isNotificationVisible) return;
   
-  const popup = document.getElementById("notificationPopup") || createNotificationPopup();
+  let popup = document.getElementById("notificationPopup");
+  if (!popup) popup = createNotificationPopup();
   popup.classList.remove("hide");
   isNotificationVisible = true;
   
@@ -872,7 +1039,23 @@ function hideNotification() {
 // Create popup on load
 window.addEventListener("load", () => {
   createNotificationPopup();
-  
+  const higgsLink = document.getElementById("higgsPluginsLink");
+  const heroHiggsLink = document.getElementById("heroHiggsLink");
+  if (higgsLink) {
+    higgsLink.href = LINKS.higgsPlugins || "#";
+    if (!LINKS.higgsPlugins) {
+      higgsLink.style.opacity = "0.6";
+      higgsLink.style.pointerEvents = "none";
+    }
+  }
+  if (heroHiggsLink) {
+    heroHiggsLink.href = LINKS.higgsPlugins || "#";
+    if (!LINKS.higgsPlugins) {
+      heroHiggsLink.style.opacity = "0.6";
+      heroHiggsLink.style.pointerEvents = "none";
+    }
+  }
+
   // Show notification every 20 seconds
   showNotification();
   notificationInterval = setInterval(showNotification, 20000);
