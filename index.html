@@ -1,56 +1,186 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Drive Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Pringlez Software Hub</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
 body{
-    background:#111827;
-    color:white;
-    font-family:sans-serif;
+background:#050d21;
+color:white;
+padding:40px;
 }
 
 .container{
-    max-width:1000px;
-    margin:auto;
-    padding:30px;
+max-width:1300px;
+margin:auto;
 }
 
-.link-box{
-    background:#1F2937;
-    padding:20px;
-    margin-bottom:15px;
-    border-radius:15px;
+.hero{
+text-align:center;
+margin-bottom:50px;
 }
 
-a{
-    color:#60A5FA;
-    text-decoration:none;
+.hero h1{
+font-size:3rem;
+margin-bottom:10px;
 }
+
+.hero p{
+opacity:.8;
+}
+
+.search{
+margin-top:25px;
+}
+
+.search input{
+width:100%;
+max-width:600px;
+padding:16px;
+border:none;
+border-radius:12px;
+background:#101b37;
+color:white;
+font-size:16px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.card{
+background:linear-gradient(
+135deg,
+#101b37,
+#17274f
+);
+
+padding:30px;
+border-radius:20px;
+
+transition:.3s;
+border:1px solid rgba(255,255,255,.05);
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.icon{
+font-size:50px;
+margin-bottom:15px;
+}
+
+.card h2{
+margin-bottom:10px;
+}
+
+.card p{
+opacity:.8;
+margin-bottom:20px;
+}
+
+.btn{
+display:inline-block;
+padding:12px 20px;
+background:#2563eb;
+border-radius:10px;
+color:white;
+text-decoration:none;
+font-weight:600;
+}
+
+.btn:hover{
+background:#3b82f6;
+}
+
 </style>
-
 </head>
+
 <body>
 
 <div class="container">
-<h1>Drive Dashboard</h1>
 
-<div class="link-box">
-<h2>Client Assets</h2>
-<a href="YOUR_DRIVE_LINK">Open Folder →</a>
+<div class="hero">
+<h1>Pringlez Software Hub</h1>
+<p>Adobe Applications & Higgs Plugins</p>
+
+<div class="search">
+<input id="search" placeholder="Search software...">
+</div>
 </div>
 
-<div class="link-box">
-<h2>Marketing Files</h2>
-<a href="YOUR_DRIVE_LINK">Open Folder →</a>
+<div class="grid" id="softwareGrid">
+
+<div class="card">
+<div class="icon">🎬</div>
+<h2>Adobe After Effects 2026</h2>
+<p>Motion graphics and VFX suite.</p>
+<a class="btn" href="YOUR_AFTER_EFFECTS_DRIVE_LINK">Open Folder</a>
 </div>
 
-<div class="link-box">
-<h2>Videos</h2>
-<a href="YOUR_DRIVE_LINK">Open Folder →</a>
+<div class="card">
+<div class="icon">🖼️</div>
+<h2>Adobe Photoshop 2026</h2>
+<p>Photo editing and design tools.</p>
+<a class="btn" href="YOUR_PHOTOSHOP_DRIVE_LINK">Open Folder</a>
+</div>
+
+<div class="card">
+<div class="icon">🎞️</div>
+<h2>Adobe Premiere Pro 2026</h2>
+<p>Professional video editing.</p>
+<a class="btn" href="YOUR_PREMIERE_DRIVE_LINK">Open Folder</a>
+</div>
+
+<div class="card">
+<div class="icon">⚡</div>
+<h2>Higgs Plugins</h2>
+<p>Plugin collection and tools.</p>
+<a class="btn" href="YOUR_HIGGS_DRIVE_LINK">Open Folder</a>
 </div>
 
 </div>
+
+</div>
+
+<script>
+
+const search = document.getElementById("search");
+
+search.addEventListener("keyup", function(){
+
+let filter = search.value.toLowerCase();
+
+document.querySelectorAll(".card").forEach(card => {
+
+let text = card.innerText.toLowerCase();
+
+card.style.display =
+text.includes(filter)
+? "block"
+: "none";
+
+});
+
+});
+
+</script>
 
 </body>
 </html>
